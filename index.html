@@ -538,41 +538,98 @@
         
         .companies-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
             gap: 30px;
         }
         
+        /* 会员卡片样式 - 蓝色渐变风格 */
         .company-card {
             background: #fff;
-            border: 1px solid var(--border-light);
-            border-radius: var(--radius-lg);
-            padding: 24px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
             transition: all 0.3s;
         }
         
         .company-card:hover {
-            border-color: var(--primary-red);
-            box-shadow: var(--shadow-md);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.16);
             transform: translateY(-5px);
         }
         
+        .company-card-header {
+            background: linear-gradient(135deg, #1e73be, #0d4a8a);
+            color: #fff;
+            padding: 25px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .company-card-header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100%;
+            background: linear-gradient(135deg, transparent 50%, rgba(255,255,255,0.1) 50%);
+        }
+        
         .company-logo {
-            width: 70px;
-            height: 70px;
-            border-radius: var(--radius-md);
-            background: linear-gradient(135deg, var(--primary-red), var(--dark-red));
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: #fff;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #fff;
-            font-size: 32px;
-            margin-bottom: 16px;
+            font-size: 36px;
+            color: #1e73be;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
         }
         
         .company-name {
-            font-size: 18px;
-            font-weight: 600;
+            font-size: 22px;
+            font-weight: bold;
             margin-bottom: 8px;
+        }
+        
+        .company-position {
+            font-size: 14px;
+            opacity: 0.9;
+            margin-bottom: 12px;
+        }
+        
+        .company-location {
+            font-size: 13px;
+            opacity: 0.85;
+            margin-bottom: 5px;
+        }
+        
+        .company-card-body {
+            padding: 20px;
+        }
+        
+        .company-info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px dashed #eee;
+        }
+        
+        .company-info-row:last-child {
+            border-bottom: none;
+        }
+        
+        .company-info-label {
+            color: #888;
+            font-size: 14px;
+        }
+        
+        .company-info-value {
+            color: #333;
+            font-weight: 500;
+            font-size: 14px;
         }
         
         .company-industry {
@@ -1056,28 +1113,96 @@
             </div>
             <div class="companies-grid">
                 <div class="company-card" data-industry="manufacturing">
-                    <div class="company-logo">🏭</div>
-                    <h3 class="company-name">深圳市筑福环保科技</h3>
-                    <div class="company-industry">制造业 | 环保科技</div>
-                    <p class="company-desc">董事长朱财福，商会常务副会长、执行会长</p>
+                    <div class="company-card-header">
+                        <div class="company-logo">🏭</div>
+                        <h3 class="company-name">深圳市筑福环保科技</h3>
+                        <div class="company-position">董事长 朱财福</div>
+                        <div class="company-location">📍 深圳 / 宣城</div>
+                    </div>
+                    <div class="company-card-body">
+                        <div class="company-info-row">
+                            <span class="company-info-label">行业</span>
+                            <span class="company-info-value">制造业 | 环保科技</span>
+                        </div>
+                        <div class="company-info-row">
+                            <span class="company-info-label">商会职务</span>
+                            <span class="company-info-value">常务副会长</span>
+                        </div>
+                        <div class="company-info-row">
+                            <span class="company-info-label">企业职务</span>
+                            <span class="company-info-value">董事长</span>
+                        </div>
+                        <p class="company-desc" style="margin-top: 15px; color: #666;">长期致力于建筑环保领域，推动行业创新与发展</p>
+                    </div>
                 </div>
                 <div class="company-card" data-industry="finance">
-                    <div class="company-logo">🏦</div>
-                    <h3 class="company-name">粤宣投资集团</h3>
-                    <div class="company-industry">金融业 | 投资管理</div>
-                    <p class="company-desc">专注粤港澳大湾区投资机会，服务会员企业</p>
+                    <div class="company-card-header">
+                        <div class="company-logo">🏦</div>
+                        <h3 class="company-name">粤宣投资集团</h3>
+                        <div class="company-position">总裁 李明</div>
+                        <div class="company-location">📍 广州 / 宣城</div>
+                    </div>
+                    <div class="company-card-body">
+                        <div class="company-info-row">
+                            <span class="company-info-label">行业</span>
+                            <span class="company-info-value">金融业 | 投资管理</span>
+                        </div>
+                        <div class="company-info-row">
+                            <span class="company-info-label">商会职务</span>
+                            <span class="company-info-value">执行会长</span>
+                        </div>
+                        <div class="company-info-row">
+                            <span class="company-info-label">企业职务</span>
+                            <span class="company-info-value">总裁</span>
+                        </div>
+                        <p class="company-desc" style="margin-top: 15px; color: #666;">专注粤港澳大湾区投资机会，服务会员企业</p>
+                    </div>
                 </div>
                 <div class="company-card" data-industry="trade">
-                    <div class="company-logo">🛒</div>
-                    <h3 class="company-name">华南商贸集团</h3>
-                    <div class="company-industry">商贸业 | 零售连锁</div>
-                    <p class="company-desc">大型商业连锁企业，拥有 30 余家门店</p>
+                    <div class="company-card-header">
+                        <div class="company-logo">🛒</div>
+                        <h3 class="company-name">华南商贸集团</h3>
+                        <div class="company-position">总经理 王强</div>
+                        <div class="company-location">📍 深圳 / 宣城</div>
+                    </div>
+                    <div class="company-card-body">
+                        <div class="company-info-row">
+                            <span class="company-info-label">行业</span>
+                            <span class="company-info-value">商贸业 | 零售连锁</span>
+                        </div>
+                        <div class="company-info-row">
+                            <span class="company-info-label">商会职务</span>
+                            <span class="company-info-value">副会长</span>
+                        </div>
+                        <div class="company-info-row">
+                            <span class="company-info-label">企业职务</span>
+                            <span class="company-info-value">总经理</span>
+                        </div>
+                        <p class="company-desc" style="margin-top: 15px; color: #666;">大型商业连锁企业，拥有 30 余家门店</p>
+                    </div>
                 </div>
                 <div class="company-card" data-industry="tech">
-                    <div class="company-logo">💻</div>
-                    <h3 class="company-name">芯丰园老字号</h3>
-                    <div class="company-industry">商贸业 | 食品制造</div>
-                    <p class="company-desc">会员企业刘团结创办，商会支持的老字号品牌</p>
+                    <div class="company-card-header">
+                        <div class="company-logo">💻</div>
+                        <h3 class="company-name">芯丰园老字号</h3>
+                        <div class="company-position">创始人 刘团结</div>
+                        <div class="company-location">📍 深圳 / 宣城</div>
+                    </div>
+                    <div class="company-card-body">
+                        <div class="company-info-row">
+                            <span class="company-info-label">行业</span>
+                            <span class="company-info-value">商贸业 | 食品制造</span>
+                        </div>
+                        <div class="company-info-row">
+                            <span class="company-info-label">商会职务</span>
+                            <span class="company-info-value">会员</span>
+                        </div>
+                        <div class="company-info-row">
+                            <span class="company-info-label">企业职务</span>
+                            <span class="company-info-value">创始人</span>
+                        </div>
+                        <p class="company-desc" style="margin-top: 15px; color: #666;">会员企业刘团结创办，商会支持的老字号品牌</p>
+                    </div>
                 </div>
             </div>
         </div>
