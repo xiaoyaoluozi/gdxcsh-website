@@ -771,6 +771,20 @@
             gap: 12px;
         }
         
+        /* ========== 入会申请表单 ========== */
+        .membership-section {
+            background: var(--bg-cream);
+        }
+        
+        .membership-form {
+            max-width: 700px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-md);
+        }
+        
         /* ========== 报名表单 ========== */
         .registration-section {
             background: linear-gradient(135deg, var(--primary-red), var(--dark-red));
@@ -1264,7 +1278,7 @@
                     <div class="service-icon">📝</div>
                     <div class="service-title">入会申请</div>
                     <div class="service-desc">在线填写入会申请表，加入广东宣城商会大家庭</div>
-                    <button class="btn btn-primary" onclick="location.href='#registration'">立即申请</button>
+                    <button class="btn btn-primary" onclick="location.href='#membership'">立即申请</button>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">📅</div>
@@ -1348,6 +1362,74 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- 入会申请 -->
+    <section class="section membership-section" id="membership">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">入会申请</h2>
+                <p class="section-subtitle">MEMBERSHIP APPLICATION</p>
+            </div>
+            <form class="membership-form" id="membershipForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>企业名称 *</label>
+                        <input type="text" name="company_name" required placeholder="请输入企业全称">
+                    </div>
+                    <div class="form-group">
+                        <label>所属行业 *</label>
+                        <select name="industry" required>
+                            <option value="">请选择</option>
+                            <option value="manufacturing">制造业</option>
+                            <option value="finance">金融业</option>
+                            <option value="trade">商贸业</option>
+                            <option value="tech">科技服务</option>
+                            <option value="construction">建筑业</option>
+                            <option value="service">服务业</option>
+                            <option value="other">其他</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>申请人姓名 *</label>
+                        <input type="text" name="applicant_name" required placeholder="请输入您的姓名">
+                    </div>
+                    <div class="form-group">
+                        <label>单位职务 *</label>
+                        <input type="text" name="position" required placeholder="请输入职务">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>手机号码 *</label>
+                        <input type="tel" name="phone" required placeholder="请输入手机号码">
+                    </div>
+                    <div class="form-group">
+                        <label>邮箱地址</label>
+                        <input type="email" name="email" placeholder="请输入邮箱地址">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>深圳地区</label>
+                        <input type="text" name="shenzhen_district" placeholder="如 南山区、福田区">
+                    </div>
+                    <div class="form-group">
+                        <label>安徽籍贯 *</label>
+                        <input type="text" name="jiguang" required placeholder="如 宣城、广德、泾县">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>企业简介</label>
+                    <textarea name="company_intro" rows="4" placeholder="请简要介绍企业情况"></textarea>
+                </div>
+                <div class="form-submit">
+                    <button type="submit" class="btn btn-primary">提交申请</button>
+                </div>
+            </form>
         </div>
     </section>
 
@@ -1471,7 +1553,14 @@
             });
         });
 
-        // 表单提交
+        // 入会申请表单提交
+        document.getElementById('membershipForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('✅ 入会申请提交成功！我们会尽快与您联系审核入会事宜。');
+            this.reset();
+        });
+
+        // 活动报名表单提交
         document.getElementById('registrationForm').addEventListener('submit', function(e) {
             e.preventDefault();
             alert('✅ 报名提交成功！我们会尽快与您联系确认参会事宜。');
