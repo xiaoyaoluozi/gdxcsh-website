@@ -290,6 +290,9 @@
         }
         
         .service-card {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
             background: #fff;
             padding: 30px 20px;
             border-radius: var(--radius-lg);
@@ -318,6 +321,10 @@
         
         .service-desc {
             font-size: 14px;
+        }
+
+        .service-card .btn {
+            margin-top: auto;
             color: var(--text-medium);
             line-height: 1.6;
         }
